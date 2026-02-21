@@ -1,0 +1,57 @@
+quiz_questions = [
+    {
+        "question": "What planet is known as the Red Planet?",
+        "options": ["A. Earth", "B. Mars", "C. Jupiter", "D. Venus"],
+        "answer": "B"
+    },
+    {
+        "question": "What gas do plants absorb from the atmosphere?",
+        "options": ["A. Oxygen", "B. Nitrogen", "C. Carbon Dioxide", "D. Hydrogen"],
+        "answer": "C"
+    },
+    {
+        "question": "What is the chemical symbol for water?",
+        "options": ["A. H2O", "B. CO2", "C. O2", "D. NaCl"],
+        "answer": "A"
+    }
+]
+
+# Student-developed procedure
+def run_quiz(questions):
+    score = 0
+
+    for q in questions:
+        print("\n" + q["question"])
+        for option in q["options"]:
+            print(option)
+
+        user_answer = input("Enter your answer (A, B, C, or D): ").upper()
+
+        if user_answer == q["answer"]:
+            print("Correct!")
+            score += 1
+        else:
+            print(f"Incorrect. The correct answer was {q['answer']}.")
+
+    return score
+
+
+def main():
+    print("Welcome to the Science Quiz App!")
+    print("Answer the following questions:")
+
+    final_score = run_quiz(quiz_questions)
+
+    print("\nQuiz Complete!")
+    print(f"Your final score: {final_score}/{len(quiz_questions)}")
+
+    if final_score == len(quiz_questions):
+        print("Outstanding performance!")
+    elif final_score >= 2:
+        print("Good job!")
+    else:
+        print("Keep studying and try again!")
+
+
+if __name__ == "__main__":
+    main()
