@@ -1,3 +1,4 @@
+# List of dictionaries containing questions, multiple-choice options, and the correct key
 quiz_questions = [
     {
         "question": "What planet is known as the Red Planet?",
@@ -16,17 +17,20 @@ quiz_questions = [
     }
 ]
 
-
 def run_quiz(questions):
+    """Iterates through questions, handles user input, and calculates the score."""
     score = 0
 
     for q in questions:
+        # Display the question and its options
         print("\n" + q["question"])
         for option in q["options"]:
             print(option)
 
+        # Get user input and convert to uppercase to match the answer key
         user_answer = input("Enter your answer (A, B, C, or D): ").upper()
 
+        # Check if the user's answer matches the stored 'answer' key
         if user_answer == q["answer"]:
             print("Correct!")
             score += 1
@@ -35,13 +39,15 @@ def run_quiz(questions):
 
     return score
 
-
 def main():
+    """Main entry point for the application."""
     print("Welcome to the Science Quiz App!")
     print("Answer the following questions:")
 
+    # Run the quiz logic and store the returned score
     final_score = run_quiz(quiz_questions)
 
+    # Display final results and feedback based on performance
     print("\nQuiz Complete!")
     print(f"Your final score: {final_score}/{len(quiz_questions)}")
 
@@ -52,6 +58,6 @@ def main():
     else:
         print("Keep studying and try again!")
 
-
+# Ensures the script runs only when executed directly (not when imported)
 if __name__ == "__main__":
     main()
